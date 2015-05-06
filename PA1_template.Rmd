@@ -7,16 +7,29 @@ output:
 
 
 ## Loading and preprocessing the data
-
-
-
+```{r}
+data <- read.table(unz("activity.zip", "activity.csv"), header=TRUE, sep=",")
+```
 ## What is mean total number of steps taken per day?
+Daily Total Number of Steps taken Daily are...
+```{r}
+sub <- subset(data, !is.na(steps))
+sub$date <- as.POSIXct(sub$date,  format="%Y-%m-%d")
+table <- aggregate(steps ~ date, data = sub, sum )
+hist(table$steps, col = "blue", main = "Total Steps Taken Daily", ylab = "Percentage", xlab = "Total Steps")
+```
 
+Mean and Median of steps taken...
+```{r}
+steps <- table$steps
+mean(steps)
+median(steps)
+```
 
-
-## What is the average daily activity pattern?
-
-
+##What is the average daily activity pattern?
+```{r}
+##hist(sub, col = 'red', main = "Daily Activity", xlab = "Date")
+```
 
 ## Imputing missing values
 
