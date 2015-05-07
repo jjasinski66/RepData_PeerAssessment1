@@ -123,7 +123,7 @@ median(steps)
 ## [1] 10765
 ```
 
-Replacing the NA's with the averages for its specific interval had the effect ofcreating a slightly steeper histogram. This would make sense since the NA's are ignored in the original, but adding average values pushed the steps towards the mean.
+Replacing the NA's with the averages for its specific interval had the effect of creating a slightly steeper histogram. This would make sense since the NA's are ignored in the original, but adding average values pushed the steps towards the overall mean.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
