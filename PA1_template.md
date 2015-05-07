@@ -11,10 +11,15 @@ Daily Total Number of Steps taken Daily are...
 
 ```r
 sum_table <- aggregate(steps ~ date, data = data, sum )
+png(filename = 'figure/plot1.png', width = 480, height = 480)
 hist(sum_table$steps, col = "blue", main = "Total Steps Taken Daily", ylab = "Percentage", xlab = "Total Steps")
+dev.off()
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+```
+## png 
+##   2
+```
 
 Mean and Median of steps taken...
 
@@ -43,10 +48,15 @@ median(steps)
 averages <- aggregate(steps ~ interval, data, mean)
 
 # plot averages frame
+png(filename = 'figure/plot2.png', width = 480, height = 480)
 plot(averages, type = "l", col = "blue", main = "Average Steps per Interval", ylab = "Steps", xlab = "Interval")
+dev.off()
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+```
+## png 
+##   2
+```
 
 ```r
 # Find Interval with highest Average of steps
@@ -80,10 +90,15 @@ newdata_tmp$steps[is.na(newdata_tmp$steps)] <- as.integer(newdata_tmp$avg_steps[
 newdata <- newdata_tmp[, 1:3]
 # Repeat Step 1 with new dataset
 new_sum_table <- aggregate(steps ~ date, data = newdata, sum )
+png(filename = 'figure/plot3.png', width = 480, height = 480)
 hist(new_sum_table$steps, col = "red", main = "New Total Steps Taken Daily", ylab = "Percentage", xlab = "Total Steps")
+dev.off()
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+```
+## png 
+##   2
+```
 
 Mean and Median of steps taken in New dataset compared with the old dataset...
 
@@ -145,9 +160,14 @@ full_week_table <- rbind(avg_end_table, avg_day_table)
 
 # Make a panel plot of split by subsets
 library(lattice)
+png(filename = 'figure/plot4.png', width = 480, height = 480)
 xyplot(steps ~ interval | weekend, data = full_week_table, type = 'l', layout = c(1,2))
+dev.off()
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+```
+## png 
+##   2
+```
 
 ### Thank you for your attention
