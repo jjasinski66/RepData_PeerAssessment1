@@ -1,4 +1,5 @@
 # Reproducible Research: Peer Assessment 1
+Jerry Jasinski  
 
 
 ## Loading and preprocessing the data
@@ -15,7 +16,7 @@ sum_table <- aggregate(steps ~ date, data = data, sum )
 hist(sum_table$steps, col = "blue", main = "Total Steps Taken Daily", ylab = "Percentage", xlab = "Total Steps")
 ```
 
-![](figure/unnamed-chunk-2-1.png) 
+![](figure/plot_1-1.png) 
 
 - Calculate and report the mean and median total number of steps taken per day.
 
@@ -48,7 +49,7 @@ averages <- aggregate(steps ~ interval, data, mean)
 plot(averages, type = "l", col = "blue", main = "Average Steps per Interval", ylab = "Steps", xlab = "Interval")
 ```
 
-![](figure/unnamed-chunk-4-1.png) 
+![](figure/plot_2-1.png) 
 
 - Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -97,7 +98,7 @@ new_sum_table <- aggregate(steps ~ date, data = newdata, sum )
 hist(new_sum_table$steps, col = "red", main = "New Total Steps Taken Daily", ylab = "Percentage", xlab = "Total Steps")
 ```
 
-![](figure/unnamed-chunk-8-1.png) 
+![](figure/plot_3-1.png) 
 
 - Calculate and report the mean and median total number of steps taken per day.
 
@@ -167,4 +168,4 @@ library(lattice)
 xyplot(steps ~ interval | weekend, data = full_week_table, type = 'l', layout = c(1,2))
 ```
 
-![](figure/unnamed-chunk-11-1.png) 
+![](figure/plot_4-1.png) 
